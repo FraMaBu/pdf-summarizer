@@ -1,7 +1,3 @@
-# PDF Summarizer
-
-A `Streamlit` app for generating AI summaries with the [map-reduce technique](https://python.langchain.com/docs/modules/chains/document/map_reduce). The app is powered by the `genaipy` Python library.
-
 # PDF Summary Generator - Streamlit App
 
 ## Overview
@@ -26,52 +22,43 @@ The app employs a [Map-Reduce](<(https://python.langchain.com/docs/modules/chain
 
 ### Prerequisites
 
-- Access to an OpenAI API key, which is set as an environemnt variable `OPENAI_API_KEY`.
+- Access to an OpenAI API key, which is set as an environment variable named `OPENAI_API_KEY`.
 
 ### Setup Instructions
 
 1. **Clone the Repository**:
 
 ```
-
-git clone [Your Repository URL]
-cd [Your Repository Name]
-
+git clone https://github.com/FraMaBu/pdf-summarizer
+cd pdf-summarizer
 ```
 
-2. **Create a Conda Environment**:
+2. **Create a virtual environment (e.g., with conda)**:
 
 ```
-
 conda create --name your_env_name python=3.11
 conda activate your_env_name
-
 ```
 
 3. **Install Dependencies**:
 
-- Install Streamlit:
-  ```
-  pip install streamlit
-  ```
-- Install `genaipy` directly from GitHub:
-  ```
-  pip install git+[Your genaipy GitHub Repo URL]
-  ```
+The `requirements.txt` file in the repository contains all necessary dependencies. Install them using:
+
+```
+pip install -r requirements.txt
+```
 
 4. **Run the App**:
 
 ```
-
 streamlit run app.py
-
 ```
 
 Open your browser and navigate to the local URL provided by Streamlit to start using the PDF Summary Generator.
 
 ## Acknowledgements
 
-Powered by `genaipy`, a custom AI library for efficient data processing. Find `genaipy` in its dedicated repository under the same GitHub account.
+Powered by `genaipy`, a custom AI library for efficient data processing. Find `genaipy` in its dedicated repository under my GitHub account.
 
 ---
 
