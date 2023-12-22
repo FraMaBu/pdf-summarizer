@@ -144,27 +144,27 @@ if st.button("Generate Summary") and uploaded_file is not None:
         except Exception as err:
             status_text.error(f"An error occurred: {err}")
 
-    # Displaying output and download options if summary has been generated
-    if st.session_state["final_summary"]:
-        st.subheader("Final Summary")
-        st.markdown(st.session_state["final_summary"])
+# Displaying output and download options if summary has been generated
+if st.session_state["final_summary"]:
+    st.subheader("Final Summary")
+    st.markdown(st.session_state["final_summary"])
 
-        # Provide options for file formats when downloading
-        file_format = st.selectbox(
-            "Choose a file format for download:",
-            ["Text File (.txt)", "Markdown File (.md)"],
+    # Provide options for file formats when downloading
+    file_format = st.selectbox(
+        "Choose a file format for download:",
+        ["Text File (.txt)", "Markdown File (.md)"],
+    )
+    if file_format == "Text File (.txt)":
+        st.download_button(
+            label="Download Summary",
+            data=st.session_state["final_summary"],
+            file_name="summary.txt",
+            mime="text/plain",
         )
-        if file_format == "Text File (.txt)":
-            st.download_button(
-                label="Download Summary",
-                data=st.session_state["final_summary"],
-                file_name="summary.txt",
-                mime="text/plain",
-            )
-        elif file_format == "Markdown File (.md)":
-            st.download_button(
-                label="Download Summary",
-                data=st.session_state["final_summary"],
-                file_name="summary.md",
-                mime="text/markdown",
-            )
+    elif file_format == "Markdown File (.md)":
+        st.download_button(
+            label="Download Summary",
+            data=st.session_state["final_summary"],
+            file_name="summary.md",
+            mime="text/markdown",
+        )
