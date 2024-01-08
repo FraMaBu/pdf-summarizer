@@ -54,7 +54,7 @@ user_reduce_llm = st.sidebar.selectbox(
     "Reduce step model:", ["gpt-3.5-turbo", "gpt-4-1106-preview"], index=1
 )
 user_reduce_words = st.sidebar.number_input(
-    "Maximum words for final reduce summary:", min_value=100, max_value=500, value=350
+    "Maximum words for final reduce summary:", min_value=100, max_value=500, value=300
 )
 
 
