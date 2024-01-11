@@ -1,65 +1,61 @@
-# PDF Summary Generator - Streamlit App
+# PDF Summary Generator - Streamlit App 📚🚀
 
-## Overview
+## Overview 🌟
 
-Welcome to the PDF Summary Generator! This `Streamlit` application simplifies generating concise summaries from PDF documents, ideal for students, researchers, and professionals looking to quickly distill knowledge embedded in lengthy documents. The app is powered by the `genaipy` Python library.
+Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit` application is your go-to tool for generating quick and concise summaries from PDF documents. Whether you're a student 🎓, researcher 🔬, or a busy professional 🏢, the app makes it a breeze to extract the essence of lengthy documents. Powered by the custom `genaipy` [Python library](https://github.com/FraMaBu/genaipy-lib) 🐍, get ready to transform how you process information!
 
-## How It Works
+## How It Works 🔍
 
-The app employs a [Map-Reduce](<(https://python.langchain.com/docs/modules/chains/document/map_reduce)>) methodology to process and summarize text from your PDFs, involving:
+The app leverages a [Map-Reduce](https://python.langchain.com/docs/modules/chains/document/map_reduce) approach to distill text from PDFs, comprising:
 
-1. **Map Step**: Extracting the text from each PDF page and generating individual intermediate summaries.
-2. **Reduce Step**: Combining these summaries into a final, comprehensive document summary.
+1. 🗺️ **Map Step**: Extracts text from each PDF page, creating individual intermediate summaries.
+2. 📉 **Reduce Step**: Merges these summaries into a final, comprehensive document summary.
 
-## Features
+## Features 🌈
 
-- **PDF Upload**: Upload any PDF file.
-- **Page Selection**: Choose a specific page range for summarization.
-- **Customizable Summarization**: Adjust settings like customizing the system message and maximum word count of summaries.
-- **Downloadable Summaries**: Download the summary in `.txt` or `.md` formats.
+- 📤 **PDF Upload**: Upload any PDF file effortlessly.
+- 📄 **Page Selection**: Select specific page ranges for targeted summarization.
+- ⚙️ **Customizable Summarization**: Tweak settings like summary word count and system messages.
+- 💾 **Downloadable Summaries**: Grab your summary in `.txt` or `.md` formats.
 
-## Getting Started
+## Getting Started 🚀
 
-### Prerequisites
+### Prerequisites 📋
 
-- Access to an OpenAI API key, which is set as an environment variable named `OPENAI_API_KEY`.
+- An OpenAI API key 🔑, set as an environment variable named `OPENAI_API_KEY`.
 
-### Setup Instructions
+### Setup Instructions 🛠️
 
-1. **Clone the Repository**:
+1. **Clone the Repository** 📁:
 
 ```
 git clone https://github.com/FraMaBu/pdf-summarizer
 cd pdf-summarizer
 ```
 
-2. **Create a virtual environment (e.g., with conda)**:
+2. **Create and Activate a Virtual Environment** 🌐:
 
 ```
-conda create --name your_env_name python=3.11
-conda activate your_env_name
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
-3. **Install Dependencies**:
+3. **Install Dependencies** 📥:
 
-The `requirements.txt` file in the repository contains all necessary dependencies. Install them using:
+Install all the necessary dependencies listed in `requirements.txt`:
 
 ```
 pip install -r requirements.txt
 ```
 
-4. **Run the App**:
+4. **Run the App** 🎉:
 
 ```
 streamlit run app.py
 ```
 
-Open your browser and navigate to the local URL provided by Streamlit to start using the PDF Summary Generator.
-
-## Acknowledgements
-
-Powered by `genaipy`, a custom AI library for efficient data processing. Find `genaipy` in its dedicated repository under my GitHub account.
+Then, simply open your browser and head to the local URL provided by Streamlit. Enjoy summarizing effortlessly!
 
 ---
 
-Enjoy summarizing with ease!
+For any questions or feedback, feel free to get in touch! I'd love to hear from you! 🤝✉️
