@@ -6,7 +6,7 @@ Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit`
 
 ## How It Works 🔍
 
-The app leverages a [Map-Reduce](https://python.langchain.com/docs/modules/chains/document/map_reduce) approach to distill text from PDFs, comprising:
+The app leverages a [Map-Reduce](https://js.langchain.com/docs/modules/chains/document/map_reduce). approach to distill text from PDFs, comprising:
 
 1. 🗺️ **Map Step**: Extracts text from each PDF page, creating individual intermediate summaries.
 2. 📉 **Reduce Step**: Merges these summaries into a final, comprehensive document summary.
