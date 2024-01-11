@@ -2,7 +2,7 @@
 
 ## Overview 🌟
 
-Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit` application is your go-to tool for generating quick and concise summaries from PDF documents. Whether you're a student 🎓, researcher 🔬, or a busy professional 🏢, the app makes it a breeze to extract the essence of lengthy documents. Powered by the custom `genaipy` [Python library](https://github.com/FraMaBu/genaipy-lib) 🐍, get ready to transform how you process information!
+Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit` application is your go-to tool for generating quick and concise summaries from PDF documents. Whether you're a student 🎓, researcher 🔬, or a busy professional 🏢, the app makes it a breeze to extract the essence of lengthy documents. Powered by the custom `genaipy` [Python library](https://github.com/FraMaBu/genaipy-lib), get ready to transform how you process information!
 
 ## How It Works 🔍
 
@@ -26,21 +26,21 @@ The app leverages a [Map-Reduce](https://js.langchain.com/docs/modules/chains/do
 
 ### Setup Instructions 🛠️
 
-1. **Clone the Repository** 📁:
+1. **Clone the Repository**:
 
 ```
 git clone https://github.com/FraMaBu/pdf-summarizer
 cd pdf-summarizer
 ```
 
-2. **Create and Activate a Virtual Environment** 🌐:
+2. **Create and Activate a Virtual Environment**:
 
 ```
 python -m venv .venv
 .venv\Scripts\activate
 ```
 
-3. **Install Dependencies** 📥:
+3. **Install Dependencies**:
 
 Install all the necessary dependencies listed in `requirements.txt`:
 
@@ -48,13 +48,13 @@ Install all the necessary dependencies listed in `requirements.txt`:
 pip install -r requirements.txt
 ```
 
-4. **Run the App** 🎉:
+4. **Run the App**:
 
 ```
 streamlit run app.py
 ```
 
-Then, simply open your browser and head to the local URL provided by Streamlit. Enjoy summarizing effortlessly!
+Then, simply open your browser and head to the local URL provided by Streamlit. Enjoy summarizing effortlessly! 🎉
 
 ---
 
