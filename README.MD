@@ -2,7 +2,7 @@
 
 ## Overview 🌟
 
-Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit` application is your go-to tool for generating quick and concise summaries from PDF documents. Whether you're a student 🎓, researcher 🔬, or a busy professional 🏢, the app makes it a breeze to extract the essence of lengthy documents. Powered by the custom `genaipy` [Python library](https://github.com/FraMaBu/genaipy-lib), get ready to transform how you process information!
+Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit` application is your go-to tool for generating quick and concise summaries from PDF documents. Whether you're a student 🎓, researcher 🔬, or a busy professional 🏢, the app makes it a breeze to extract the essence of lengthy documents. Powered by the custom [genaipy Python library](https://github.com/FraMaBu/genaipy-lib), get ready to transform how you process information!
 
 ## How It Works 🔍
 
@@ -11,12 +11,13 @@ The app leverages a [Map-Reduce](https://js.langchain.com/docs/modules/chains/do
 1. 🗺️ **Map Step**: Extracts text from each PDF page, creating individual page summaries.
 2. 📉 **Reduce Step**: Merges these page summaries into a final, comprehensive document summary.
 
-## Features 🌈
+To use the app, just follow these steps:
 
-- 📤 **PDF Upload**: Upload any PDF file.
-- 📄 **Page Selection**: Select specific page ranges for targeted summarization.
-- ⚙️ **Customizable Summarization**: Tweak settings like summarization modes and word counts of summaries.
-- 💾 **Downloadable Summaries**: Grab your final summary in `.txt` or `.md` formats.
+1. 📤 **Upload PDF**: Upload any PDF file.
+2. 📄 **Select Pages**: Select a specific page range from the document for targeted summarization.
+3. ⚙️ **Customize Settings (Optional)**: Tweak settings like the summary mode and word counts for summaries.
+4. 🌈 **Generate Summary**: Click the `Generate Summary` button to start the summarization process.
+5. 💾 **Download Summary**: Grab your final summary in `.txt` or `.md` formats.
 
 ## Summary Modes 🔄
 
