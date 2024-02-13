@@ -13,11 +13,11 @@ The app leverages a [Map-Reduce](https://js.langchain.com/docs/modules/chains/do
 
 To use the app, just follow these steps:
 
-1. 📤 **Upload PDF**: Upload any PDF file.
-2. 📄 **Select Pages**: Select a specific page range from the document for targeted summarization.
-3. ⚙️ **Customize Settings (Optional)**: Tweak settings like the summary mode and word counts for summaries.
-4. 🌈 **Generate Summary**: Click the `Generate Summary` button to start the summarization process.
-5. 💾 **Download Summary**: Grab your final summary in `.txt` or `.md` formats.
+1. **Upload PDF**: Upload any PDF file.
+2. **Select Pages**: Select a specific page range from the document for targeted summarization.
+3. **Customize Settings (Optional)**: Tweak settings like the summary mode and word counts for summaries.
+4. **Generate Summary**: Click the `Generate Summary` button to start the summarization process.
+5. **Download Summary**: Grab your final summary in `.txt` or `.md` formats.
 
 ## Summary Modes 🔄
 
