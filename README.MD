@@ -6,17 +6,29 @@ Welcome to the Generative AI powered **PDF Summary Generator**! This `Streamlit`
 
 ## How It Works 🔍
 
-The app leverages a [Map-Reduce](https://js.langchain.com/docs/modules/chains/document/map_reduce). approach to distill text from PDFs, comprising:
+The app leverages a [Map-Reduce](https://js.langchain.com/docs/modules/chains/document/map_reduce) approach to distill text from PDFs, comprising:
 
-1. 🗺️ **Map Step**: Extracts text from each PDF page, creating individual intermediate summaries.
-2. 📉 **Reduce Step**: Merges these summaries into a final, comprehensive document summary.
+1. 🗺️ **Map Step**: Extracts text from each PDF page, creating individual page summaries.
+2. 📉 **Reduce Step**: Merges these page summaries into a final, comprehensive document summary.
 
 ## Features 🌈
 
-- 📤 **PDF Upload**: Upload any PDF file effortlessly.
+- 📤 **PDF Upload**: Upload any PDF file.
 - 📄 **Page Selection**: Select specific page ranges for targeted summarization.
-- ⚙️ **Customizable Summarization**: Tweak settings like summary word count and system messages.
-- 💾 **Downloadable Summaries**: Grab your summary in `.txt` or `.md` formats.
+- ⚙️ **Customizable Summarization**: Tweak settings like summarization modes and word counts of summaries.
+- 💾 **Downloadable Summaries**: Grab your final summary in `.txt` or `.md` formats.
+
+## Summary Modes 🔄
+
+The app offers the user two distinct summarization modes catering to different use cases and document types:
+
+- **General Mode**: Desgined for creating general, concise summaries for a wide range of documents.
+
+- **Research Mode**: Designed for detailed research summaries of academic articles. This mode generates research summaries answering the five C's (`Category`, `Context`, `Correctness`, `Contributions`, `Clarity`) as described [in this article](http://ccr.sigcomm.org/online/files/p83-keshavA.pdf).
+
+### How to Select a Mode 🛠️
+
+In the Streamlit app sidebar named `Settings`, you'll find the option to select between `General` (default) and `Research` modes. Choose the one that best fits your document type and summarization needs. Upon selection, the app will automatically adjust the summarization prompts to align with the chosen mode.
 
 ## Getting Started 🚀
 

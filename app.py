@@ -11,6 +11,7 @@ from genaipy.prompts.generate_summaries import (
     REDUCE_SUMMARY_PROMPT_TPL,
 )
 from genaipy.utilities import validate_api_key
+from prompts import SYS_MESSAGE_RESEARCH, MAP_PROMPT_RESEARCH, REDUCE_PROMPT_RESEARCH
 
 # Logger configuration
 logging.basicConfig(
@@ -20,6 +21,19 @@ logging.basicConfig(
 # Authentication (use your method to validate or input API key)
 OPENAI_API_KEY = validate_api_key(env_var_name="OPENAI_API_KEY")
 
+# Define mode-specific prompts
+mode_settings = {
+    "General": {
+        "sys_message": DEFAULT_SYS_MESSAGE,
+        "map_prompt_tpl": SUMMARY_PROMPT_TPL,
+        "reduce_prompt_tpl": REDUCE_SUMMARY_PROMPT_TPL,
+    },
+    "Research": {
+        "sys_message": SYS_MESSAGE_RESEARCH,
+        "map_prompt_tpl": MAP_PROMPT_RESEARCH,
+        "reduce_prompt_tpl": REDUCE_PROMPT_RESEARCH,
+    },
+}
 
 # Streamlit UI components
 st.title("PDF Summary Generator")
@@ -31,30 +45,37 @@ if "final_summary" not in st.session_state:
 # Sidebar settings
 st.sidebar.title("Settings")
 
-st.sidebar.header("System Message")
-system_message_choice = st.sidebar.selectbox(
-    "Choose system message option:", ["Default", "Custom"], index=0
+# Mode selection
+st.sidebar.header("Summary Mode")
+selected_mode = st.sidebar.radio(
+    "Select a mode for your summary:",
+    ["General", "Research"],
+    index=0,
+    help="`General` is suited for a wide range of documents. `Research` provides detailed summaries of academic articles.",
 )
-if system_message_choice == "Custom":
-    user_system_message = st.sidebar.text_input("Enter your custom system message:")
-else:
-    user_system_message = DEFAULT_SYS_MESSAGE
 
+user_system_message = mode_settings[selected_mode]["sys_message"]
+map_prompt_template = mode_settings[selected_mode]["map_prompt_tpl"]
+reduce_prompt_template = mode_settings[selected_mode]["reduce_prompt_tpl"]
 
-st.sidebar.header("Map Step")
-user_map_llm = st.sidebar.selectbox(
-    "Map step model:", ["gpt-3.5-turbo", "gpt-4-1106-preview"], index=0
-)
+st.sidebar.info(f"Mode selected: **{selected_mode}**")
+logging.info("%s mode-specific prompts have been initialized.", selected_mode)
+
+# Max words selection
+st.sidebar.header("Summary Configuration")
 user_map_words = st.sidebar.number_input(
-    "Maximum words for each map summary:", min_value=50, max_value=300, value=150
-)
-
-st.sidebar.header("Reduce Step")
-user_reduce_llm = st.sidebar.selectbox(
-    "Reduce step model:", ["gpt-3.5-turbo", "gpt-4-1106-preview"], index=1
+    "Maximum words for each map summary:",
+    min_value=50,
+    max_value=300,
+    value=150,
+    help="Adjust the maximum word count for individual page summaries.",
 )
 user_reduce_words = st.sidebar.number_input(
-    "Maximum words for final reduce summary:", min_value=100, max_value=500, value=300
+    "Maximum words for final reduce summary:",
+    min_value=100,
+    max_value=500,
+    value=300,
+    help="Set the maximum word count for the final summary.",
 )
 
 
@@ -79,12 +100,12 @@ def generate_map_summaries(pages, progress_bar):
     for i, (page, content) in enumerate(pages.items()):
         try:
             map_prompt = build_prompt(
-                template=SUMMARY_PROMPT_TPL,
+                template=MAP_PROMPT_RESEARCH,
                 text=content,
                 max_words=user_map_words,
             )
             summary = get_chat_response(
-                map_prompt, sys_message=user_system_message, model=user_map_llm
+                map_prompt, sys_message=user_system_message, model="gpt-3.5-turbo"
             )
             map_summaries.append(summary)
             logging.info("Map Summary #%d: %s", page, summary)
@@ -103,12 +124,12 @@ def generate_reduce_summary(map_summaries):
     text = "\n".join(map_summaries).replace("\n\n", "")
     try:
         reduce_prompt = build_prompt(
-            template=REDUCE_SUMMARY_PROMPT_TPL, text=text, max_words=user_reduce_words
+            template=REDUCE_PROMPT_RESEARCH, text=text, max_words=user_reduce_words
         )
         final_summary = get_chat_response(
             prompt=reduce_prompt,
             sys_message=user_system_message,
-            model=user_reduce_llm,
+            model="gpt-4-1106-preview",
             max_tokens=1024,
         )
         logging.info("Completed final reduce summary!")
